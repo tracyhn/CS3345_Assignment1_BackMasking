@@ -15,6 +15,6 @@ public class ListStackDriver {
         System.out.println("Now there should be zero items in the stack: " + stack.count());
         System.out.println("Should throw an exception:");
         stack.peek();
-        System.out.println("Some test here again");
+        System.out.println("Some test");
     }
 }
