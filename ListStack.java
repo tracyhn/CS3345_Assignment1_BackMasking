@@ -7,20 +7,14 @@ public class ListStack implements BKStack, Iterable <ListStack.ListStackNode>{
 
     public boolean isEmpty() {
         System.out.println("We are in the isEmpty() method");
-        boolean result;
-        if (head.prev == null){result = true;}
-        else {result = false;}
-        return result;
+        return this.count() == 0;
     }
 
     public int count(){
         System.out.println("We are in the count method()");
         int count = 0;
-        Iterator <ListStackNode> it = iterator();
-        while (it.hasNext()){
-            System.out.println("Entered while loop in count()");
+        for (ListStackNode node : this){
             count++;
-            it.next();
         }
         System.out.println("Count is " + count);
         return count;
@@ -66,14 +60,9 @@ public class ListStack implements BKStack, Iterable <ListStack.ListStackNode>{
         return answer;
     }
 
-    public Iterator <ListStackNode> iterator() {
-        System.out.println("Iterator constructor is called");
-        Iterator <ListStackNode> iterate = new stackIterator();
-        return iterate;
-    }
 
     private static class stackIterator implements Iterator <ListStackNode>{
-        private static ListStackNode current = ListStack.head;
+        private ListStackNode current = ListStack.head;
         public boolean hasNext() {
             // System.out.println("Head is: " + head.data);
             // System.out.println("Entered the function hasNext()");
@@ -93,17 +82,26 @@ public class ListStack implements BKStack, Iterable <ListStack.ListStackNode>{
         }
     }
 
-    static class ListStackNode {
-        public ListStackNode (double d, ListStackNode p, ListStackNode n){
-            data = d;
-            prev = p;
-            next = n;
-        }
-        public double data;
-        public ListStackNode prev;
-        public ListStackNode next;
+    public Iterator <ListStackNode> iterator() {
+        System.out.println("Iterator constructor is called");
+        Iterator <ListStackNode> iterate = new stackIterator();
+        return iterate;
     }
+    
+    static class ListStackNode {
+    public ListStackNode (double d, ListStackNode p, ListStackNode n){
+        data = d;
+        prev = p;
+        next = n;
+    }
+    public double data;
+    public ListStackNode prev;
+    public ListStackNode next;
+
 }
+}
+
+
 
 
 
