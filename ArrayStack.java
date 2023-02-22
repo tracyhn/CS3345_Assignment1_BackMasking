@@ -1,3 +1,11 @@
+/**
+ * 
+ * 
+ * Tracy Huynh
+ * CS 3345.503
+ * Assignment 1
+ * February 17, 2023
+ */
 import java.util.EmptyStackException;
 
 public class ArrayStack implements BKStack{
@@ -6,9 +14,7 @@ public class ArrayStack implements BKStack{
     private int count = -1;                                             // Stack is empty
 
     public boolean isEmpty() {
-        boolean status = true;
-        if (count() > -1) {status = false;}
-        return status;
+        return (count() == -1);
     }
 
     public int count() {
@@ -45,9 +51,9 @@ public class ArrayStack implements BKStack{
     }
 
     private void checkCapacity(){
-        if (count == INITIAL_CAPACITY - 10){
+        if (count == INITIAL_CAPACITY - 2){
             double newArray[] = new double[INITIAL_CAPACITY * 2];       // Double the size of the array
-            for (int index = 0; index < count; index++){
+            for (int index = 0; index <= count; index++){
                 newArray[index] = arrayStack[index];
             }
             arrayStack = newArray;                                      // Set arrayStack pointer to newArray

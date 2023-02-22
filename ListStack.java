@@ -1,3 +1,11 @@
+/**
+ * 
+ * 
+ * Tracy Huynh
+ * CS 3345.503
+ * Assignment 1
+ * February 17, 2023
+ */
 import java.util.EmptyStackException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -22,7 +30,7 @@ public class ListStack implements BKStack, Iterable <ListStack.ListStackNode>{
 
     public void push(double d) {
         System.out.println("We are in the push method()");
-        if (head.next == null && head.prev == null){                                                      // We are at the first node
+        if (head.next == null && head.prev == null){          // Stack is currently empty                                                  // We are at the first node
             head.next = new ListStackNode(d, head, null); 
             head = head.next; 
             System.out.println("Pushed node: " + head.data);                                             // Set pointer to current new node
@@ -38,7 +46,7 @@ public class ListStack implements BKStack, Iterable <ListStack.ListStackNode>{
     public double pop() {
         System.out.println("We are in the pop method()");
         double answer;
-        if (head.prev == null){
+        if (head.prev == null){                              // head.prev == null when stack is empty
             throw new EmptyStackException();
         }
         else{
@@ -51,11 +59,11 @@ public class ListStack implements BKStack, Iterable <ListStack.ListStackNode>{
 
     public double peek() {
         double answer;
-        if (head.prev == null){
+        if (head.prev == null){                
             throw new EmptyStackException();
         }
         else{
-           answer = head.data; 
+            answer = head.data; 
         }
         return answer;
     }
@@ -69,14 +77,14 @@ public class ListStack implements BKStack, Iterable <ListStack.ListStackNode>{
             return current.prev != null;
         }
         public ListStackNode next() {
-            System.out.println("Etered the function next()");
+            System.out.println("Entered the function next()");
             ListStackNode nextNode;
-            if (hasNext() == false){
-                throw new NoSuchElementException();
-            }
-            else{
+            if (hasNext()){
                 nextNode = current.prev;
                 current = nextNode;
+            }
+            else{
+                throw new NoSuchElementException();
             }
             return nextNode;
         }
@@ -89,14 +97,14 @@ public class ListStack implements BKStack, Iterable <ListStack.ListStackNode>{
     }
     
     static class ListStackNode {
-    public ListStackNode (double d, ListStackNode p, ListStackNode n){
+    private ListStackNode (double d, ListStackNode p, ListStackNode n){
         data = d;
         prev = p;
         next = n;
     }
-    public double data;
-    public ListStackNode prev;
-    public ListStackNode next;
+    private double data;
+    private ListStackNode prev;
+    private ListStackNode next;
 
 }
 }
