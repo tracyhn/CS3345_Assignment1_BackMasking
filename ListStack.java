@@ -2,6 +2,7 @@
  * 
  * 
  * Tracy Huynh
+ * Net ID: thh220000
  * CS 3345.503
  * Assignment 1
  * February 17, 2023
@@ -14,37 +15,37 @@ public class ListStack implements BKStack, Iterable <ListStack.ListStackNode>{
     static ListStackNode head = new ListStackNode (0, null, null);
 
     public boolean isEmpty() {
-        System.out.println("We are in the isEmpty() method");
+        //System.out.println("We are in the isEmpty() method");
         return this.count() == 0;
     }
 
     public int count(){
-        System.out.println("We are in the count method()");
+        //System.out.println("We are in the count method()");
         int count = 0;
         for (ListStackNode node : this){
             count++;
         }
-        System.out.println("Count is " + count);
+        //System.out.println("Count is " + count);
         return count;
     }
 
     public void push(double d) {
-        System.out.println("We are in the push method()");
+        //System.out.println("We are in the push method()");
         if (head.next == null && head.prev == null){          // Stack is currently empty                                                  // We are at the first node
             head.next = new ListStackNode(d, head, null); 
             head = head.next; 
-            System.out.println("Pushed node: " + head.data);                                             // Set pointer to current new node
+            //System.out.println("Pushed node: " + head.data);                                             // Set pointer to current new node
         }
         else {
             ListStackNode newNode = new ListStackNode(d, head, null);
             head.next = newNode;
             head = head.next;
-            System.out.println("Pushed node: " + head.data); 
+            //System.out.println("Pushed node: " + head.data); 
         }
     }
 
     public double pop() {
-        System.out.println("We are in the pop method()");
+        //System.out.println("We are in the pop method()");
         double answer;
         if (head.prev == null){                              // head.prev == null when stack is empty
             throw new EmptyStackException();
@@ -77,7 +78,7 @@ public class ListStack implements BKStack, Iterable <ListStack.ListStackNode>{
             return current.prev != null;
         }
         public ListStackNode next() {
-            System.out.println("Entered the function next()");
+            //System.out.println("Entered the function next()");
             ListStackNode nextNode;
             if (hasNext()){
                 nextNode = current.prev;
@@ -91,7 +92,7 @@ public class ListStack implements BKStack, Iterable <ListStack.ListStackNode>{
     }
 
     public Iterator <ListStackNode> iterator() {
-        System.out.println("Iterator constructor is called");
+        //System.out.println("Iterator constructor is called");
         Iterator <ListStackNode> iterate = new stackIterator();
         return iterate;
     }

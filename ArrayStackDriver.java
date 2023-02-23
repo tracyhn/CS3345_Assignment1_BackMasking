@@ -22,8 +22,9 @@ public class ArrayStackDriver {
         
         System.out.println("count: " + stack.count());
         System.out.println(stack.pop());
-        System.out.println("Now should return true: " + stack.isEmpty());
         System.out.println("Finally, count of stack is: " + stack.count());
+        System.out.println("Now should return true: " + stack.isEmpty());
+        
 
    
     }

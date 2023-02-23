@@ -2,6 +2,7 @@
  * 
  * 
  * Tracy Huynh
+ * Net ID: thh220000
  * CS 3345.503
  * Assignment 1
  * February 17, 2023
@@ -9,12 +10,13 @@
 import java.util.EmptyStackException;
 
 public class ArrayStack implements BKStack{
-    private int INITIAL_CAPACITY = 100;
+    private int INITIAL_CAPACITY = 10000;
     private double arrayStack[] = new double[INITIAL_CAPACITY];
     private int count = -1;                                             // Stack is empty
 
     public boolean isEmpty() {
-        return (count() == -1);
+        return (count() == 0);                                          // count() returns count + 1
+                                                                        // stack is empty when count == -1
     }
 
     public int count() {
