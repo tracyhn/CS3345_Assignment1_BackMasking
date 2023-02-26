@@ -1,5 +1,5 @@
 /**
- * 
+ * Implements a Stack of type double using a Linked List.
  * 
  * Tracy Huynh
  * Net ID: thh220000
@@ -12,10 +12,10 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class ListStack implements BKStack, Iterable <ListStack.ListStackNode>{
-    static ListStackNode head = new ListStackNode (0, null, null);
+    static ListStackNode head = new ListStackNode (0, null, null);     
 
     public boolean isEmpty() {
-        return head.prev == null;
+        return head.prev == null;                           
     }
 
     public int count(){
@@ -27,20 +27,11 @@ public class ListStack implements BKStack, Iterable <ListStack.ListStackNode>{
     }
 
     public void push(double d) {
-        System.out.println("We are in the push method()");
-        if (head.next == null && head.prev == null){          // Stack is currently empty                                                  // We are at the first node
-            head.next = new ListStackNode(d, head, null); 
-            head = head.next;                                 // Set pointer to current new node
-        }
-        else {
-            ListStackNode newNode = new ListStackNode(d, head, null);
-            head.next = newNode;
-            head = head.next;
-        }
+            head.next = new ListStackNode(d, head, null);
+            head = head.next;                                 // Point to the new node
     }
 
     public double pop() {
-        System.out.println("We are popping...");
         double answer;
         if (head.prev == null){                              // head.prev == null when stack is empty
             throw new EmptyStackException();
@@ -63,8 +54,7 @@ public class ListStack implements BKStack, Iterable <ListStack.ListStackNode>{
         }
         return answer;
     }
-
-
+    
     private static class stackIterator implements Iterator <ListStackNode>{
         private ListStackNode current = ListStack.head;
         public boolean hasNext() {
